@@ -1,23 +1,20 @@
 class Solution {
     public String convertToTitle(int columnNumber) {
-        char[] a=new char[26];
-        for(int i=0;i<26;i++)
-        a[i]=(char)((int)'A'+i);
-        if(columnNumber<27)
-        return String.valueOf(a[columnNumber-1]);
-        List<Integer> x=new ArrayList<>();
-        while(columnNumber>26){
-            int d=columnNumber%26;
-            if(d==0)
-            x.add(26);
-            else
-            x.add(d);
+        String x="";
+        while(columnNumber>0){
+            int d=(columnNumber-1)%26;
+            x+=(char)(d+'A');
             columnNumber=(columnNumber-1)/26;
         }
-        x.add(columnNumber);
-        String y="";
-        for(int i=x.size()-1;i>=0;i--)
-        y+=a[x.get(i)-1];
-        return y;
+        char[] a=x.toCharArray();
+        int i=0,j=a.length-1;
+        while(i<j){
+            char c=a[i];
+            a[i]=a[j];
+            a[j]=c;
+            i+=1;
+            j-=1;
+        }
+        return String.valueOf(a);
     }
 }
