@@ -13,7 +13,6 @@ class Solution {
             break;
             if(c!=0 && i+1>=0)
             b[c++]=' ';
-            System.out.println(i+" "+j);
             for(int k=i+1;k<=j;k++)
             b[c++]=a[k];
             j=i-1;
