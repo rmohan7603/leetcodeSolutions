@@ -11,15 +11,15 @@ class Solution {
             bkt[freq]=new ArrayList<>();
             bkt[freq].add(i);
         }
-        String y="";
+        StringBuilder y=new StringBuilder();
         for(int i=s.length();i>0;i--){
             if(bkt[i]!=null){
                 for(char c:bkt[i]){
                     for(int j=0;j<i;j++)
-                    y+=c;
+                    y.append(c);
                 }
             }
         }
-        return y;
+        return y.toString();
     }
 }
