@@ -18,13 +18,22 @@ class Solution {
             i+=1;
         }
         return n;*/
-        if(strs.length==1)
+        /*if(strs.length==1)
         return strs[0];
         Arrays.sort(strs);
         String n="";
         for(int i=0;i<strs[0].length();i++){
             if(strs[0].charAt(i)!=strs[strs.length-1].charAt(i))
                 return n;
+            n+=strs[0].charAt(i);
+        }
+        return n;*/
+        String n="";
+        for(int i=0;i<strs[0].length();i++){
+            for(String s:strs){
+                if(i==s.length() || strs[0].charAt(i)!=s.charAt(i))
+                return n;
+            }
             n+=strs[0].charAt(i);
         }
         return n;
