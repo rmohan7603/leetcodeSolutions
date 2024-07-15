@@ -4,16 +4,17 @@ class Solution {
         for(char c:s.toCharArray()){
             hmap.put(c,hmap.getOrDefault(c,0)+1);
         }
-        Map<Integer,List<Character>> fmap=new HashMap<>();
+        List<Character> bkt[]=new ArrayList[s.length()+1];
         for(char i:hmap.keySet()){
-            if(!fmap.containsKey(hmap.get(i)))
-            fmap.put(hmap.get(i),new ArrayList<>());
-            fmap.get(hmap.get(i)).add(i);
+            int freq=hmap.get(i);
+            if(bkt[freq]==null)
+            bkt[freq]=new ArrayList<>();
+            bkt[freq].add(i);
         }
         String y="";
         for(int i=s.length();i>0;i--){
-            if(fmap.containsKey(i)){
-                for(char c:fmap.get(i)){
+            if(bkt[i]!=null){
+                for(char c:bkt[i]){
                     for(int j=0;j<i;j++)
                     y+=c;
                 }
