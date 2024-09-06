@@ -16,12 +16,10 @@ class Solution {
         while(remSet.contains(head.val))
         head=head.next;
         ListNode curNode=head;
-        ListNode prevNode=head;
-        while(curNode!=null){
-            if(remSet.contains(curNode.val))
-            prevNode.next=curNode.next;
+        while(curNode.next!=null){
+            if(remSet.contains(curNode.next.val))
+            curNode.next=curNode.next.next;
             else
-            prevNode=curNode;
             curNode=curNode.next;
         }
         return head;
